@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {# добавляем файл bootstrap #}
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='bootstrap.css', v=1)}}">
+    {# добавляем корректиректировку тегов css по своему усмотрению #}
+    <link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='style.css', v=1)}}">
+    <title>Добавление оборудования в базу данных</title>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-3 form">
+                <form name="record_sn" method="post">
+
+                    <div class="form-group">
+                        <select name = "type_equip" class="form-control">
+                            {# используем шаблонизатор 'Jinja2'. В данном случае циклом загружаем наименование оборудования #}
+                            {% for row in rows %}
+                                <option value="{{row.id}}">{{row.name_equip}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <textarea placeholder="Введите серийный номер устройства..." class="form-control" name="equip"></textarea>
+                    <input class="btn btn-outline-primary" type="submit" value="Отправить">
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row py-1">
+            <div class="col col-md-3">
+                {# если есть некорректно введенные номера отображаем это в виде сообщения #}
+                {% if msg != '' %}
+                    <h6>{{msg}}</h6>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

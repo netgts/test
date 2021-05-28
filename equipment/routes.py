@@ -2,6 +2,7 @@ from flask import render_template, request
 from equipment import app
 from equipment.models import *
 
+
 # список наименования оборудования
 rows = db.session.query(TypeEquip.id, TypeEquip.name_equip).all()
 

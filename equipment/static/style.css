@@ -1,19 +1,17 @@
 body {
     padding-left: 2rem;
     padding-top: 2rem;
-    /*background-color: #e9e8e8;*/
 }
 
 select { width: 100%; }
 
 textarea {
-    width: 10%; /* Ширина поля в процентах */
-    height: 20rem; /* Высота поля в пикселах */
+    width: 10%;
+    height: 20rem;
     ~esize: none; /* Запрещаем изменять размер */
 }
 
 h3 {
-    /*margin-top: 1rem;*/
     color: #48484f;
     font-size: 20px;
     font-family: Arial, Verdana, sans-serif;
